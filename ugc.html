@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Allie Le — UGC & Content Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--ink: var(--ink);--mid: var(--ink-mid);--lt: var(--ink-lt);--paper: var(--cream);--warm: var(--cream-dk);--line: var(--border);--acc:#d4943a}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);font-size:clamp(15px,1.1vw,17px);line-height:1.65;overflow-x:hidden}
+    ::selection{background:var(--acc);color:#fff}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem clamp(1.5rem,6vw,5rem);background:rgba(250,249,247,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .logo{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;text-decoration:none;color:var(--ink)}
+    .back{font-size:.75rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;color:var(--mid)}.back:hover{color:var(--ink)}
+    .nav-r{font-size:.75rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.45rem 1rem;border:1.5px solid var(--acc);border-radius:2px;text-decoration:none;color:var(--acc);transition:background .2s,color .2s}.nav-r:hover{background:var(--acc);color:#fff}
+    .track-hero{padding:clamp(6rem,10vw,9rem) clamp(1.5rem,6vw,5rem) clamp(3rem,5vw,5rem);background:linear-gradient(135deg,#fefaf4 0%,#faf0dc 60%,#f5e2bc 100%)}
+    .th-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--acc);color:#fff;font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:.35rem .9rem;border-radius:100px;margin-bottom:1.2rem}
+    .th-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,5rem);font-weight:900;line-height:1;letter-spacing:-.02em;margin-bottom:1.2rem;max-width:14ch}
+    .th-title em{font-style:italic;color:var(--acc)}
+    .th-desc{font-size:clamp(.95rem,1.1vw,1.05rem);color:var(--mid);max-width:50ch;line-height:1.7;margin-bottom:1.8rem}
+    .fp-row{display:flex;flex-wrap:wrap;gap:.45rem}
+    .fp{font-size:.74rem;font-weight:500;letter-spacing:.04em;padding:.3rem .85rem;border-radius:100px;background:rgba(212,148,58,.12);border:1px solid rgba(212,148,58,.3);color:var(--acc)}
+    section{padding:clamp(3.5rem,7vw,6rem) clamp(1.5rem,6vw,5rem)}
+    .s-eye{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lt);margin-bottom:.55rem}
+    .s-title{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.7rem);font-weight:700;line-height:1.1;margin-bottom:clamp(2rem,3.5vw,3.5rem)}
+    .div{height:1px;background:var(--line);margin:0 clamp(1.5rem,6vw,5rem)}
+    /* CONTENT GRID - portrait-heavy like a real UGC portfolio */
+    .ugc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .ug{border-radius:10px;overflow:hidden;cursor:pointer;transition:transform .3s;position:relative}
+    .ug:hover{transform:scale(1.02)}.ug:hover .ov{opacity:1}
+    .ug-thumb{width:100%;aspect-ratio:9/16;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.4rem;position:relative}
+    .ug-wide .ug-thumb{aspect-ratio:4/3}
+    .ug-meta{padding:.7rem 0 .15rem}
+    .ug-type{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:.18rem}
+    .ug-name{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700}
+    .ov{position:absolute;inset:0;background:rgba(0,0,0,.3);opacity:0;transition:opacity .3s;display:flex;align-items:center;justify-content:center}
+    .ov span{color:#fff;font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid rgba(255,255,255,.7);padding:.42rem 1rem;border-radius:2px}
+    .ph{font-size:1.6rem;opacity:.6}.ph-h{font-size:.64rem;color:var(--lt);font-family:'DM Mono',monospace;letter-spacing:.04em;text-align:center;padding:0 1rem}
+    .bga{background:linear-gradient(160deg,#fdf3e3,#f0d9a8)}.bgb{background:linear-gradient(160deg,#fae8e5,#f0c9bf)}.bgc{background:linear-gradient(160deg,#fef9f0,#f5e8cc)}.bgd{background:linear-gradient(160deg,#e8f4ef,#c0dbd0)}.bge{background:linear-gradient(160deg,#f2edf8,#d4beea)}.bgf{background:linear-gradient(160deg,#f8ede8,#e8c4b8)}
+    /* NICHES */
+    #niches{background:var(--warm)}
+    .niche-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem}
+    .niche-card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:1.6rem}
+    .nc-icon{font-size:1.4rem;margin-bottom:.8rem}
+    .nc-t{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:.4rem}
+    .nc-d{font-size:.83rem;color:var(--mid);line-height:1.6}
+    .cta-band{background:var(--acc);padding:3rem clamp(1.5rem,6vw,5rem);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+    .cta-t{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;color:#fff}
+    .cta-sub{color:rgba(255,255,255,.72);font-size:.88rem;margin-top:.3rem}
+    .cta-btns{display:flex;gap:.9rem;flex-wrap:wrap}
+    .btn-w{padding:.8rem 1.6rem;background:#fff;color:var(--acc);font-size:.78rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border-radius:2px}.btn-w:hover{opacity:.88}
+    .btn-wo{padding:.8rem 1.6rem;border:1.5px solid rgba(255,255,255,.6);color:#fff;font-size:.78rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;border-radius:2px}.btn-wo:hover{border-color:#fff}
+    .mb{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;pointer-events:none;transition:opacity .3s}
+    .mb.open{opacity:1;pointer-events:all}
+    .modal{background:var(--paper);border-radius:10px;max-width:620px;width:100%;padding:2.4rem;transform:translateY(20px);transition:transform .3s;max-height:88vh;overflow-y:auto}
+    .mb.open .modal{transform:translateY(0)}
+    .mc{float:right;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--lt)}.mc:hover{color:var(--ink)}
+    .m-cat{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:.45rem}
+    .m-ttl{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:.9rem}
+    .m-body{font-size:.89rem;color:var(--mid);line-height:1.7}.m-body p{margin-bottom:.75rem}
+    .uph{background:var(--warm);border:1.5px dashed var(--line);border-radius:6px;padding:1rem;margin-top:1rem;font-size:.78rem;color:var(--lt);text-align:center;font-family:'DM Mono',monospace}
+    footer{border-top:1px solid var(--line);padding:1.3rem clamp(1.5rem,6vw,5rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .f-name{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700}
+    .f-note{font-size:.73rem;color:var(--lt)}
+    .fu{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+    .fu.vis{opacity:1;transform:none}
+    @media(max-width:700px){.ugc-grid{grid-template-columns:1fr 1fr}}
+  </style>
+  <link rel="stylesheet" href="brand.css"/>
+</head>
+<body>
+<nav>
+  <a class="logo" href="index.html">Allie Le</a>
+  <a class="back" href="index.html">← All Portfolios</a>
+  <a class="nav-r" href="mailto:alliele.connect@gmail.com?subject=Let's Work Together">Hire Me</a>
+</nav>
+
+<div class="track-hero">
+  <div class="fu">
+    <div class="th-badge">📱 UGC & Content Portfolio</div>
+    <h1 class="th-title">Content that<br>feels <em>real.</em></h1>
+    <p class="th-desc">Authentic short-form content, work outfit series, wellness UGC, and app-focused creator content. Built to stop the scroll, not look like an ad.</p>
+    <div class="fp-row">
+      <span class="fp">TikTok / Reels</span><span class="fp">Work Outfits</span><span class="fp">Tech & Apps</span><span class="fp">Wellness</span><span class="fp">Lifestyle</span><span class="fp">Organic UGC</span>
+    </div>
+  </div>
+</div>
+
+<section>
+  <p class="s-eye fu">Content</p>
+  <h2 class="s-title fu">Selected UGC & Social Work</h2>
+  <div class="ugc-grid">
+    <div class="ug fu" onclick="openModal('app')"><div class="ug-thumb bga"><p class="ph">📱</p><p class="ph-h">Upload app UGC or tech content here</p><div class="ov"><span>View</span></div></div><div class="ug-meta"><p class="ug-type">Tech / App</p><p class="ug-name">App Launch UGC Series</p></div></div>
+    <div class="ug fu" onclick="openModal('ootd')"><div class="ug-thumb bgb"><p class="ph">👔</p><p class="ph-h">Upload work outfit content here</p><div class="ov"><span>View</span></div></div><div class="ug-meta"><p class="ug-type">Work Outfits</p><p class="ug-name">Professional Style Series</p></div></div>
+    <div class="ug fu" onclick="openModal('well')"><div class="ug-thumb bgd"><p class="ph">🌿</p><p class="ph-h">Upload wellness content here</p><div class="ov"><span>View</span></div></div><div class="ug-meta"><p class="ug-type">Wellness</p><p class="ug-name">Wellness Brand UGC</p></div></div>
+    <div class="ug fu" onclick="openModal('life')"><div class="ug-thumb bgc"><p class="ph">✨</p><p class="ph-h">Upload lifestyle content here</p><div class="ov"><span>View</span></div></div><div class="ug-meta"><p class="ug-type">Lifestyle</p><p class="ug-name">Day-in-the-Life Content</p></div></div>
+    <div class="ug fu" onclick="openModal('rev')"><div class="ug-thumb bge"><p class="ph">⭐</p><p class="ph-h">Upload product review or unboxing UGC</p><div class="ov"><span>View</span></div></div><div class="ug-meta"><p class="ug-type">Product Review</p><p class="ug-name">Authentic Product UGC</p></div></div>
+    <div class="ug fu" onclick="openModal('bts')"><div class="ug-thumb bgf"><p class="ph">🎬</p><p class="ph-h">Upload behind-the-scenes or storytelling content</p><div class="ov"><span>View</span></div></div><div class="ug-meta"><p class="ug-type">Storytelling</p><p class="ug-name">Behind-the-Brand Content</p></div></div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<section id="niches">
+  <p class="s-eye fu">Niches</p>
+  <h2 class="s-title fu">Where I create.</h2>
+  <div class="niche-grid">
+    <div class="niche-card fu"><p class="nc-icon">💻</p><p class="nc-t">Tech & Apps</p><p class="nc-d">Authentic demo content, app walkthroughs, and feature spotlights — that feel like a trusted friend sharing a find, not a sponsored post.</p></div>
+    <div class="niche-card fu"><p class="nc-icon">👔</p><p class="nc-t">Work Outfits & Professional Style</p><p class="nc-d">OOTD content for the professional audience — what to wear to the office, client meetings, events, and Zoom calls. Relatable and aspirational.</p></div>
+    <div class="niche-card fu"><p class="nc-icon">🌿</p><p class="nc-t">Wellness & Self-Care</p><p class="nc-d">Everyday wellness routines, product reviews, and lifestyle content — grounded in real habits, not unrealistic aspirations.</p></div>
+    <div class="niche-card fu"><p class="nc-icon">✨</p><p class="nc-t">Lifestyle & Personal Brand</p><p class="nc-d">Day-in-the-life content, professional routines, and storytelling that builds an audience and positions a brand with authenticity.</p></div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div>
+    <p class="cta-t">Looking for a UGC creator who understands brand?</p>
+    <p class="cta-sub">I bring strategic thinking to every piece of content — because authentic doesn't mean unintentional.</p>
+  </div>
+  <div class="cta-btns">
+    <a class="btn-w" href="mailto:alliele.connect@gmail.com?subject=Let's Work Together">Get in Touch</a>
+    <a class="btn-wo" href="index.html">See All Work →</a>
+  </div>
+</div>
+
+<footer><span class="f-name">Allie Le</span><span class="f-note">UGC · Social Content · Lifestyle · Tech</span></footer>
+
+<div class="mb" id="mb" onclick="if(event.target.id==='mb')closeModal()">
+  <div class="modal"><button class="mc" onclick="closeModal()">✕</button><p class="m-cat" id="mCat"></p><h3 class="m-ttl" id="mTtl"></h3><div class="m-body" id="mBody"></div></div>
+</div>
+<script>
+const md={
+  app:{cat:"Tech / App",t:"App Launch UGC Series",b:`<p>A series of short-form videos and static posts for a tech app launch. Designed to feel native and organic — like a real user who loves the product, not a paid partnership post.</p><div class="uph">📁 Upload video links, screenshots, or a PDF with your content here.</div>`},
+  ootd:{cat:"Work Outfits",t:"Professional Style Series",b:`<p>A regular content series covering work outfit styling — from office OOTD to business casual to smart creative. Built for the LinkedIn and Instagram professional audience.</p><div class="uph">📁 Upload photos, reels, or screenshots of your work outfit content here.</div>`},
+  well:{cat:"Wellness",t:"Wellness Brand UGC",b:`<p>Authentic product UGC for a wellness brand — morning routine integration, product demos, and lifestyle-adjacent content that reflects real use.</p><div class="uph">📁 Upload wellness content photos, reels, or a PDF portfolio here.</div>`},
+  life:{cat:"Lifestyle",t:"Day-in-the-Life Content",b:`<p>Day-in-the-life content series documenting a professional lifestyle — morning routines, work days, and personal moments. Builds connection and keeps an audience coming back.</p><div class="uph">📁 Upload your day-in-the-life content or video clips here.</div>`},
+  rev:{cat:"Product Review",t:"Authentic Product UGC",b:`<p>Honest product review and unboxing UGC — the kind that gets repurposed by brands because it genuinely converts. First impressions, real reactions, real results.</p><div class="uph">📁 Upload product UGC videos or photo content here.</div>`},
+  bts:{cat:"Storytelling",t:"Behind-the-Brand Content",b:`<p>Behind-the-scenes and brand storytelling content — showing the process, the people, and the purpose behind a brand in a way that builds trust and loyalty.</p><div class="uph">📁 Upload BTS content, story-format posts, or video clips here.</div>`},
+};
+function openModal(id){const d=md[id];if(!d)return;document.getElementById('mCat').textContent=d.cat;document.getElementById('mTtl').textContent=d.t;document.getElementById('mBody').innerHTML=d.b;document.getElementById('mb').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('mb').classList.remove('open');document.body.style.overflow='';}
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.08});
+document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Design Portfolio — Allie Le</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,700;1,300;1,500&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="brand.css"/>
+  <style>
+    nav { display:flex; align-items:center; justify-content:space-between; padding:.9rem var(--pad); border-bottom:1px solid var(--border); position:sticky; top:0; background:rgba(255,249,243,.95); backdrop-filter:blur(14px); z-index:100; }
+    .nl { font-family:var(--font-display); font-size:1.05rem; font-weight:500; text-decoration:none; color:var(--ink); }
+    .nb { font-size:.7rem; font-weight:500; letter-spacing:.09em; text-transform:uppercase; text-decoration:none; color:var(--ink-mid); transition:color .2s; }
+    .nb:hover { color:var(--lilac-dk); }
+    .nc { font-size:.7rem; font-weight:600; letter-spacing:.07em; text-transform:uppercase; padding:.42rem 1rem; background:var(--orange); color:var(--brown); border-radius:var(--radius-pill); text-decoration:none; transition:background .2s; }
+    .nc:hover { background:var(--orange-dk); color:#fff; }
+
+    /* HERO */
+    .hero { padding:clamp(4rem,8vw,7rem) var(--pad) clamp(3rem,5vw,5rem); max-width:1100px; margin:0 auto; }
+    .h-badge { display:inline-flex; align-items:center; gap:.5rem; font-family:var(--font-mono); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-dk); background:var(--orange-lt); border:1px solid var(--orange-line); padding:.3rem .85rem; border-radius:var(--radius-pill); margin-bottom:1.2rem; }
+    .h-title { font-family:var(--font-display); font-size:clamp(2.8rem,6vw,6rem); font-weight:300; line-height:.97; letter-spacing:-.02em; margin-bottom:1.3rem; }
+    .h-title em { font-style:italic; font-weight:500; color:var(--orange-dk); }
+    .h-desc { font-size:clamp(.9rem,1.1vw,1rem); color:var(--ink-mid); max-width:50ch; line-height:1.75; font-weight:300; margin-bottom:1.8rem; }
+    .h-chips { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:2rem; }
+    .hchip { font-family:var(--font-mono); font-size:.62rem; letter-spacing:.04em; padding:.24rem .72rem; border-radius:var(--radius-pill); background:var(--cream-dk); border:1px solid var(--border); color:var(--ink-mid); }
+    .h-stats { display:flex; gap:2.5rem; flex-wrap:wrap; }
+    .hs-n { font-family:var(--font-display); font-size:1.8rem; font-weight:500; color:var(--brown); line-height:1; }
+    .hs-l { font-size:.65rem; color:var(--ink-lt); margin-top:.1rem; font-family:var(--font-mono); letter-spacing:.04em; }
+
+    .div { height:1px; background:var(--border); }
+    .div-pad { margin:0 var(--pad); }
+    .section { padding:clamp(3.5rem,7vw,6rem) var(--pad); max-width:1100px; margin:0 auto; }
+    .s-eye { font-family:var(--font-mono); font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-lt); margin-bottom:.5rem; }
+    .s-title { font-family:var(--font-display); font-size:clamp(1.8rem,3.2vw,3rem); font-weight:300; line-height:1.08; margin-bottom:clamp(2rem,3.5vw,3.5rem); }
+    .s-title em { font-style:italic; font-weight:500; color:var(--orange-dk); }
+    .s-hdr { display:flex; align-items:baseline; justify-content:space-between; gap:2rem; margin-bottom:clamp(2rem,3.5vw,3.5rem); }
+    .s-lnk { font-size:.7rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-mid); text-decoration:none; border-bottom:1px solid var(--border); padding-bottom:2px; white-space:nowrap; transition:color .2s,border-color .2s; }
+    .s-lnk:hover { color:var(--orange-dk); border-color:var(--orange); }
+
+    /* ── WEB PROJECTS ── */
+    .web-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; }
+    .wcard { border-radius:var(--radius); overflow:hidden; border:1px solid var(--border); background:var(--white); cursor:pointer; transition:transform .3s,box-shadow .3s; }
+    .wcard:hover { transform:translateY(-4px); box-shadow:0 20px 50px rgba(122,96,67,.1); }
+    .bc { background:#F2EBE0; border-bottom:1px solid var(--border); padding:.52rem .72rem; display:flex; align-items:center; gap:.5rem; }
+    .bc-dots { display:flex; gap:.3rem; }
+    .bc-dot { width:9px; height:9px; border-radius:50%; }
+    .bc-bar { flex:1; background:var(--white); border:1px solid var(--border); border-radius:4px; padding:.2rem .6rem; font-family:var(--font-mono); font-size:.58rem; color:var(--ink-lt); overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+    .site-preview { position:relative; height:210px; overflow:hidden; background:var(--cream-dk); }
+    .site-preview iframe { width:200%; height:200%; transform:scale(.5); transform-origin:top left; border:none; pointer-events:none; position:absolute; top:0; left:0; }
+    .site-preview::after { content:''; position:absolute; bottom:0; left:0; right:0; height:55px; background:linear-gradient(to bottom,transparent,rgba(255,249,243,.9)); pointer-events:none; }
+    .phov { position:absolute; inset:0; background:rgba(42,31,20,.4); opacity:0; transition:opacity .25s; display:flex; align-items:center; justify-content:center; }
+    .wcard:hover .phov { opacity:1; }
+    .phov span { color:#fff; font-size:.7rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; border:1.5px solid rgba(255,255,255,.75); padding:.42rem 1rem; border-radius:var(--radius-pill); }
+    .wbody { padding:1.1rem 1.2rem 1.3rem; }
+    .wtag { font-family:var(--font-mono); font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; color:var(--orange-dk); margin-bottom:.28rem; }
+    .wtitle { font-family:var(--font-display); font-size:1.08rem; font-weight:500; line-height:1.25; margin-bottom:.38rem; }
+    .wdesc { font-size:.8rem; color:var(--ink-mid); line-height:1.62; margin-bottom:.7rem; }
+    .wchips { display:flex; flex-wrap:wrap; gap:.3rem; }
+    .wc { font-family:var(--font-mono); font-size:.58rem; letter-spacing:.03em; padding:.18rem .58rem; border-radius:3px; background:var(--cream-dk); border:1px solid var(--border); color:var(--ink-mid); }
+    .wlink { display:inline-flex; align-items:center; gap:.35rem; font-size:.7rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--orange-dk); text-decoration:none; margin-top:.8rem; border-bottom:1px solid var(--orange-line); padding-bottom:1px; transition:border-color .2s; }
+    .wlink:hover { border-color:var(--orange); }
+
+    /* ── DESIGN SAMPLES ── */
+    #designs { background:var(--cream-dk); }
+    .dg { display:grid; grid-template-columns:repeat(12,1fr); gap:1rem; }
+    .di { border-radius:var(--radius); overflow:hidden; cursor:pointer; position:relative; transition:transform .3s; }
+    .di:hover { transform:scale(1.02); }
+    .di:hover .dov { opacity:1; }
+    .d7 { grid-column:span 7; } .d5 { grid-column:span 5; } .d4 { grid-column:span 4; }
+    .dthumb { width:100%; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:.4rem; position:relative; }
+    .d7 .dthumb { aspect-ratio:16/9; }
+    .dov { position:absolute; inset:0; background:rgba(42,31,20,.3); opacity:0; transition:opacity .3s; display:flex; align-items:center; justify-content:center; }
+    .dov span { color:#fff; font-size:.7rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; border:1.5px solid rgba(255,255,255,.75); padding:.4rem 1rem; border-radius:var(--radius-pill); }
+    .dph { font-size:1.4rem; opacity:.45; }
+    .dht { font-family:var(--font-mono); font-size:.58rem; color:var(--ink-lt); letter-spacing:.04em; text-align:center; padding:0 .8rem; }
+    .dmeta { padding:.75rem 0 .15rem; }
+    .dtype { font-family:var(--font-mono); font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; color:var(--orange-dk); margin-bottom:.15rem; }
+    .dname { font-family:var(--font-display); font-size:.95rem; font-weight:500; line-height:1.25; }
+    .bg1 { background:linear-gradient(135deg,#EDE0CF,#D4BFA0); }
+    .bg2 { background:linear-gradient(135deg,#F3E4FA,#DFB8F0); }
+    .bg3 { background:linear-gradient(135deg,#FFF0DC,#FFD09A); }
+    .bg4 { background:linear-gradient(135deg,#FFF8DC,#FFE88A); }
+    .bg5 { background:linear-gradient(135deg,#D4F0E8,#9AD8C8); }
+
+    /* ── SKILLS ── */
+    .sk-2col { display:grid; grid-template-columns:1fr 1fr; gap:3.5rem; align-items:start; }
+    .sk-p { color:var(--ink-mid); font-size:.9rem; line-height:1.75; margin-bottom:.95rem; }
+    .sk-p strong { color:var(--ink); font-weight:600; }
+    .tc-wrap { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1.2rem; }
+    .tc { font-family:var(--font-mono); font-size:.65rem; letter-spacing:.04em; padding:.26rem .72rem; border-radius:3px; background:var(--cream-dk); border:1px solid var(--border); }
+    .sk-rows { display:flex; flex-direction:column; gap:.85rem; }
+    .skr { display:flex; align-items:center; gap:1rem; }
+    .skl { font-size:.82rem; font-weight:500; min-width:138px; }
+    .skt { flex:1; height:4px; background:var(--border); border-radius:2px; overflow:hidden; }
+    .skf { height:100%; border-radius:2px; background:var(--orange); animation:bIn 1.5s ease forwards; }
+    @keyframes bIn { from { width:0; } }
+    .skn { font-family:var(--font-mono); font-size:.6rem; color:var(--ink-lt); min-width:78px; text-align:right; }
+
+    /* CTA BAND */
+    .cta { background:var(--brown); padding:3rem var(--pad); display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+    .ct-t { font-family:var(--font-display); font-size:clamp(1.4rem,2.5vw,2rem); font-weight:300; color:var(--peach); }
+    .ct-t em { font-style:italic; font-weight:500; }
+    .ct-s { color:rgba(255,255,255,.5); font-size:.85rem; margin-top:.28rem; }
+    .cta-btns { display:flex; gap:.8rem; flex-wrap:wrap; }
+    .btn-pe { padding:.78rem 1.6rem; background:var(--peach); color:var(--brown); font-family:var(--font-body); font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; border-radius:var(--radius-pill); transition:opacity .2s; }
+    .btn-pe:hover { opacity:.88; }
+    .btn-ow { padding:.78rem 1.6rem; border:1.5px solid rgba(255,255,255,.35); color:#fff; font-family:var(--font-body); font-size:.72rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; border-radius:var(--radius-pill); transition:border-color .2s; }
+    .btn-ow:hover { border-color:rgba(255,255,255,.75); }
+
+    /* MODAL */
+    .mb { position:fixed; inset:0; background:rgba(42,31,20,.55); z-index:400; display:flex; align-items:center; justify-content:center; padding:2rem; opacity:0; pointer-events:none; transition:opacity .3s; }
+    .mb.open { opacity:1; pointer-events:all; }
+    .modal { background:var(--white); border-radius:var(--radius); max-width:680px; width:100%; padding:2.4rem; transform:translateY(20px); transition:transform .3s; max-height:90vh; overflow-y:auto; }
+    .mb.open .modal { transform:translateY(0); }
+    .mcl { float:right; background:none; border:none; font-size:1.2rem; cursor:pointer; color:var(--ink-lt); }
+    .mcl:hover { color:var(--ink); }
+    .m-tag { font-family:var(--font-mono); font-size:.6rem; letter-spacing:.13em; text-transform:uppercase; color:var(--orange-dk); margin-bottom:.55rem; }
+    .m-tt { font-family:var(--font-display); font-size:1.55rem; font-weight:500; margin-bottom:.3rem; line-height:1.15; }
+    .m-role { font-family:var(--font-mono); font-size:.65rem; color:var(--ink-lt); margin-bottom:1.1rem; }
+    .m-sbody { border-radius:var(--radius); overflow:hidden; border:1px solid var(--border); margin-bottom:1.1rem; }
+    .m-bc { background:#F2EBE0; border-bottom:1px solid var(--border); padding:.48rem .7rem; display:flex; align-items:center; gap:.48rem; }
+    .m-bbar { flex:1; background:var(--white); border:1px solid var(--border); border-radius:3px; padding:.17rem .58rem; font-family:var(--font-mono); font-size:.56rem; color:var(--ink-lt); overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+    .m-ifw { height:270px; overflow:hidden; position:relative; background:var(--cream-dk); }
+    .m-ifw iframe { width:200%; height:200%; transform:scale(.5); transform-origin:top left; border:none; pointer-events:none; }
+    .m-ifw::after { content:''; position:absolute; bottom:0; left:0; right:0; height:80px; background:linear-gradient(to bottom,transparent,rgba(255,249,243,.95)); }
+    .m-body { font-size:.87rem; color:var(--ink-mid); line-height:1.75; }
+    .m-body p { margin-bottom:.75rem; }
+    .m-body strong { color:var(--ink); font-weight:600; }
+    .m-chips { display:flex; flex-wrap:wrap; gap:.35rem; margin:.9rem 0; }
+    .m-chip { font-size:.64rem; font-weight:500; padding:.2rem .62rem; border-radius:var(--radius-pill); background:var(--cream-dk); border:1px solid var(--border); }
+    .m-visit { display:inline-flex; align-items:center; gap:.4rem; font-size:.7rem; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:var(--orange-dk); text-decoration:none; border-bottom:1.5px solid var(--orange-line); padding-bottom:2px; transition:border-color .2s; }
+    .m-visit:hover { border-color:var(--orange); }
+    .uph { background:var(--cream-dk); border:1.5px dashed var(--border); border-radius:var(--radius); padding:1rem; margin-top:1rem; text-align:center; font-size:.75rem; color:var(--ink-lt); font-family:var(--font-mono); letter-spacing:.04em; line-height:1.6; }
+
+    footer { border-top:1px solid var(--border); padding:1.3rem var(--pad); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    .fn { font-family:var(--font-display); font-size:.95rem; font-weight:500; }
+    .ft { font-size:.68rem; color:var(--ink-lt); }
+
+    @media(max-width:860px) { .web-grid,.sk-2col { grid-template-columns:1fr; gap:2rem; } .d7,.d5,.d4 { grid-column:span 12; } }
+    @media(max-width:600px) { nav .nb { display:none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nl" href="index.html">Allie Le</a>
+  <a class="nb" href="index.html">← All Portfolios</a>
+  <a class="nc" href="contact.html">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero fu">
+  <div class="h-badge">🎨 Design & Web Portfolio</div>
+  <h1 class="h-title">Design that<br><em>earns</em> attention.</h1>
+  <p class="h-desc">Brand materials, live web projects, event marketing, social graphics, presentations and original illustration — built across tech, education, nonprofit, and wellness industries.</p>
+  <div class="h-chips">
+    <span class="hchip">Brand Identity</span><span class="hchip">Event Marketing</span><span class="hchip">Social Graphics</span><span class="hchip">Presentations</span><span class="hchip">Illustration</span><span class="hchip">Adobe Suite</span><span class="hchip">Canva Pro</span><span class="hchip">Figma</span>
+  </div>
+  <div class="h-stats">
+    <div><p class="hs-n">4+</p><p class="hs-l">Live sites contributed to</p></div>
+    <div><p class="hs-n">19+</p><p class="hs-l">Events marketed</p></div>
+    <div><p class="hs-n">5</p><p class="hs-l">Industries spanned</p></div>
+  </div>
+</div>
+
+<div class="div div-pad"></div>
+
+<!-- WEB PROJECTS -->
+<div class="section">
+  <p class="s-eye fu">Web & Digital Projects</p>
+  <h2 class="s-title fu">Live sites I<br><em>contributed to.</em></h2>
+
+  <div class="web-grid">
+
+    <div class="wcard fu" onclick="openM('cie')">
+      <div class="bc"><div class="bc-dots"><div class="bc-dot" style="background:#ff6058"></div><div class="bc-dot" style="background:#ffbd2e"></div><div class="bc-dot" style="background:#28c840"></div></div><div class="bc-bar">business.gmu.edu/centers/center-for-innovation-and-entrepreneurship</div></div>
+      <div class="site-preview"><iframe src="https://business.gmu.edu/centers/center-for-innovation-and-entrepreneurship" loading="lazy" sandbox="allow-same-origin" title="CIE GMU"></iframe><div class="phov"><span>View Project</span></div></div>
+      <div class="wbody">
+        <p class="wtag">Brand & Web · Higher Education</p>
+        <p class="wtitle">Center for Innovation & Entrepreneurship — GMU</p>
+        <p class="wdesc">Built brand marketing, designed materials for 19 events, and promoted campus programs reaching 135+ students across the DMV area.</p>
+        <div class="wchips"><span class="wc">Brand Marketing</span><span class="wc">Event Promotion</span><span class="wc">Social Content</span><span class="wc">GMU</span></div>
+        <a class="wlink" href="https://business.gmu.edu/centers/center-for-innovation-and-entrepreneurship" target="_blank" rel="noopener">Visit Site ↗</a>
+      </div>
+    </div>
+
+    <div class="wcard fu" onclick="openM('sop')">
+      <div class="bc"><div class="bc-dots"><div class="bc-dot" style="background:#ff6058"></div><div class="bc-dot" style="background:#ffbd2e"></div><div class="bc-dot" style="background:#28c840"></div></div><div class="bc-bar">stateofplace.co/case-studies</div></div>
+      <div class="site-preview"><iframe src="https://www.stateofplace.co/case-studies" loading="lazy" sandbox="allow-same-origin" title="State of Place"></iframe><div class="phov"><span>View Project</span></div></div>
+      <div class="wbody">
+        <p class="wtag">Digital Marketing · Tech / Urban Data SaaS</p>
+        <p class="wtitle">State of Place — Case Studies & Digital Content</p>
+        <p class="wdesc">Supported digital marketing and content strategy for an AI-powered urban data platform serving 50+ global communities.</p>
+        <div class="wchips"><span class="wc">Content Strategy</span><span class="wc">Digital Marketing</span><span class="wc">SaaS</span><span class="wc">Urban Tech</span></div>
+        <a class="wlink" href="https://www.stateofplace.co/case-studies" target="_blank" rel="noopener">Visit Site ↗</a>
+      </div>
+    </div>
+
+    <div class="wcard fu" onclick="openM('stearns')">
+      <div class="bc"><div class="bc-dots"><div class="bc-dot" style="background:#ff6058"></div><div class="bc-dot" style="background:#ffbd2e"></div><div class="bc-dot" style="background:#28c840"></div></div><div class="bc-bar">stearnscenter.gmu.edu</div></div>
+      <div class="site-preview"><iframe src="https://stearnscenter.gmu.edu" loading="lazy" sandbox="allow-same-origin" title="Stearns Center"></iframe><div class="phov"><span>View Project</span></div></div>
+      <div class="wbody">
+        <p class="wtag">Web Management & Analytics · Higher Ed</p>
+        <p class="wtitle">Stearns Center for Teaching & Learning — GMU</p>
+        <p class="wdesc">Managed faculty website and generated analytics reports contributing to a 44.4% increase in mobile user traffic across 2,025+ faculty members.</p>
+        <div class="wchips"><span class="wc">Web Management</span><span class="wc">Analytics</span><span class="wc">+44.4% Mobile</span><span class="wc">Faculty Programs</span></div>
+        <a class="wlink" href="https://stearnscenter.gmu.edu" target="_blank" rel="noopener">Visit Site ↗</a>
+      </div>
+    </div>
+
+    <div class="wcard fu" onclick="openM('vaahec')">
+      <div class="bc"><div class="bc-dots"><div class="bc-dot" style="background:#ff6058"></div><div class="bc-dot" style="background:#ffbd2e"></div><div class="bc-dot" style="background:#28c840"></div></div><div class="bc-bar">vaahec.org</div></div>
+      <div class="site-preview"><iframe src="https://www.vaahec.org" loading="lazy" sandbox="allow-same-origin" title="VAAHEC"></iframe><div class="phov"><span>View Project</span></div></div>
+      <div class="wbody">
+        <p class="wtag">LMS & Digital Systems · Health Education</p>
+        <p class="wtitle">Virginia AHEC — Health Workforce Training</p>
+        <p class="wdesc">Built 35 public telehealth courses, managed LMS for 141 AHEC scholars, and built data dashboards for internal and external stakeholders.</p>
+        <div class="wchips"><span class="wc">LMS Administration</span><span class="wc">35 Courses</span><span class="wc">Data Dashboards</span><span class="wc">Healthcare</span></div>
+        <a class="wlink" href="https://www.vaahec.org" target="_blank" rel="noopener">Visit Site ↗</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="div div-pad"></div>
+
+<!-- DESIGN SAMPLES -->
+<div id="designs" class="section" style="max-width:none;padding-left:var(--pad);padding-right:var(--pad)">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="s-hdr fu">
+      <div><p class="s-eye">Graphic Design</p><h2 class="s-title">Brand, events<br><em>& illustration.</em></h2></div>
+    </div>
+    <div class="dg">
+      <div class="di d7 fu" onclick="openM('tedx')"><div class="dthumb bg1"><p class="dph">🎤</p><p class="dht">Upload TedxGMU event materials here</p><div class="dov"><span>View Project</span></div></div><div class="dmeta"><p class="dtype">Event Marketing · TedxGMU</p><p class="dname">"The Bridge" Conference — 130+ Attendees</p></div></div>
+      <div class="di d5 fu" onclick="openM('social')"><div class="dthumb bg2"><p class="dph">📱</p><p class="dht">Upload social media graphics here</p><div class="dov"><span>View</span></div></div><div class="dmeta"><p class="dtype">Social Media Graphics</p><p class="dname">Multi-Brand Campaign Content</p></div></div>
+      <div class="di d4 fu" onclick="openM('illus')"><div class="dthumb bg4"><p class="dph">✏️</p><p class="dht">Upload drawings here</p><div class="dov"><span>View</span></div></div><div class="dmeta"><p class="dtype">Illustration</p><p class="dname">Original Artwork</p></div></div>
+      <div class="di d4 fu" onclick="openM('pres')"><div class="dthumb bg3"><p class="dph">📊</p><p class="dht">Upload presentation screenshots</p><div class="dov"><span>View</span></div></div><div class="dmeta"><p class="dtype">Presentation Design</p><p class="dname">Strategy & Annual Reports</p></div></div>
+      <div class="di d4 fu" onclick="openM('campus')"><div class="dthumb bg5"><p class="dph">🎪</p><p class="dht">Upload campus event materials</p><div class="dov"><span>View</span></div></div><div class="dmeta"><p class="dtype">Event Collateral · CIE GMU</p><p class="dname">19 Campus Events</p></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="div div-pad"></div>
+
+<!-- SKILLS -->
+<div class="section">
+  <div class="sk-2col">
+    <div class="fu">
+      <p class="s-eye">Approach</p>
+      <h2 class="s-title" style="margin-bottom:1.3rem">Design with<br><em>purpose behind it.</em></h2>
+      <p class="sk-p">My design work spans tech startups, health nonprofits, education centers, and community events — I adapt fast and build visual systems that fit the audience, not just look good on screen.</p>
+      <p class="sk-p">I pair <strong>Adobe Illustrator, Photoshop, and InDesign</strong> with <strong>Canva Pro</strong> and <strong>Figma</strong> — always starting from: <em>what does this person need to feel or do?</em></p>
+      <div class="tc-wrap">
+        <span class="tc">Adobe Illustrator</span><span class="tc">Photoshop</span><span class="tc">InDesign</span><span class="tc">Figma</span><span class="tc">Canva Pro</span><span class="tc">PowerPoint</span><span class="tc">After Effects</span>
+      </div>
+    </div>
+    <div class="fu">
+      <p style="font-size:.76rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:1.2rem">Design Skills</p>
+      <div class="sk-rows">
+        <div class="skr"><span class="skl">Brand Materials</span><div class="skt"><div class="skf" style="width:90%"></div></div><span class="skn">Illustrator</span></div>
+        <div class="skr"><span class="skl">Event Marketing</span><div class="skt"><div class="skf" style="width:93%"></div></div><span class="skn">Canva / PS</span></div>
+        <div class="skr"><span class="skl">Social Graphics</span><div class="skt"><div class="skf" style="width:96%"></div></div><span class="skn">Canva Pro</span></div>
+        <div class="skr"><span class="skl">Presentations</span><div class="skt"><div class="skf" style="width:88%"></div></div><span class="skn">PowerPoint</span></div>
+        <div class="skr"><span class="skl">Illustration</span><div class="skt"><div class="skf" style="width:82%"></div></div><span class="skn">Illustrator</span></div>
+        <div class="skr"><span class="skl">UI / Prototyping</span><div class="skt"><div class="skf" style="width:76%"></div></div><span class="skn">Figma</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta">
+  <div><p class="ct-t">Looking for a designer who gets <em>the full picture?</em></p><p class="ct-s">Design + data + strategy — all three, every project.</p></div>
+  <div class="cta-btns">
+    <a class="btn-pe" href="contact.html">Get in Touch</a>
+    <a class="btn-ow" href="analytics.html">See Analytics Work →</a>
+  </div>
+</div>
+
+<footer><span class="fn">Allie Le</span><span class="ft">Graphic Design · Brand · Web · Illustration</span></footer>
+
+<!-- MODAL -->
+<div class="mb" id="mb" onclick="if(event.target.id==='mb')closeM()">
+  <div class="modal">
+    <button class="mcl" onclick="closeM()">✕</button>
+    <p class="m-tag" id="mTag"></p>
+    <h3 class="m-tt" id="mTt"></h3>
+    <p class="m-role" id="mRole"></p>
+    <div id="mSite"></div>
+    <div class="m-body" id="mBody"></div>
+  </div>
+</div>
+
+<script>
+const P = {
+  cie:{tag:"Brand & Web · Higher Education",t:"Center for Innovation & Entrepreneurship — GMU",r:"Business Development Intern · Apr 2021 – Sep 2023",url:"https://business.gmu.edu/centers/center-for-innovation-and-entrepreneurship",b:`<p>Built the center's brand marketing, designed 19 event campaigns, and reached 135+ students across campus and the DMV area.</p><p><strong>Work included:</strong> Event flyers for Patriot Pitch, Student Design Challenge, Mama Chang Cooking Demo, The Depot student business, Brew Crawl, and the Patriot Pantry food drive.</p>`,chips:["Brand Marketing","Event Flyers","Social Graphics","19 Events","135+ Students"],upload:"📁 Upload event flyers, posters, social posts, or event photos here."},
+  sop:{tag:"Digital Marketing · Urban Tech SaaS",t:"State of Place — Case Studies & Digital Content",r:"Digital Marketing Contributor",url:"https://www.stateofplace.co/case-studies",b:`<p>State of Place is an AI-powered urban data platform helping 50+ global communities make smarter citymaking decisions. Contributed to digital marketing and content strategy.</p>`,chips:["Content Strategy","Digital Marketing","Case Studies","SaaS","Urban AI"],upload:"📁 Upload screenshots, content samples, or materials you created here."},
+  stearns:{tag:"Web Management & Analytics · Higher Ed",t:"Stearns Center for Teaching & Learning — GMU",r:"Program Assistant · Dec 2022 – Jun 2023",url:"https://stearnscenter.gmu.edu",b:`<p>Managed the faculty website and organized 4 annual Faculty Teaching Excellence Awards for 2,025+ faculty. Analytics strategy contributed to a <strong>44.4% increase in mobile traffic</strong>.</p>`,chips:["Web Analytics","+44.4% Mobile","Faculty Data","Annual Reports","GMU"],upload:"📁 Upload web reports, dashboard screenshots, or award program materials here."},
+  vaahec:{tag:"LMS & Digital Systems · Health Education",t:"Virginia AHEC — Health Workforce Training",r:"LMS IT Administrator · May 2023 – May 2024",url:"https://www.vaahec.org",b:`<p>Built 35 public telehealth courses, managed LMS for 141 AHEC scholars, and created data dashboards and weekly reports for internal and external stakeholders.</p>`,chips:["LMS Admin","35 Telehealth Courses","Data Dashboards","141 Scholars","Healthcare"],upload:"📁 Upload dashboard screenshots, course materials, or reports here."},
+  tedx:{tag:"Event Marketing Design",t:'"The Bridge" — TedxGMU Spring Conference',r:"Director of Event Management · 130+ Attendees",url:null,b:`<p>Led full design and marketing for TedxGMU's "The Bridge" spring conference — posters, social graphics, stage visuals, and speaker cards within TEDx brand guidelines.</p>`,chips:["Event Posters","Social Graphics","Stage Visuals","TEDx","130+ Attendees"],upload:"📁 Upload TedxGMU event materials here — posters, graphics, or event photos."},
+  social:{tag:"Social Media Graphics",t:"Multi-Brand Campaign Content",r:"C2 Education · CIE · CHWT · 2021–2026",url:null,b:`<p>Social media and email marketing graphics across three organizations — each with different audiences, tones, and goals. Helped drive a <strong>37% booking increase at C2 Education</strong>.</p>`,chips:["Email Marketing","Social Graphics","Multi-brand","Education","Healthcare"],upload:"📁 Upload social graphics, email templates, or screenshots of published posts here."},
+  illus:{tag:"Illustration & Drawing",t:"Original Artwork & Illustration",r:"Personal & Applied Creative Work",url:null,b:`<p>Hand-drawn and digital illustration — editorial sketches, character studies, and applied artwork that fed into branding and event materials.</p>`,chips:["Hand-drawn","Digital Illustration","Editorial","Sketchbook"],upload:"📁 Upload drawings, sketchbook scans, or digital illustration files here."},
+  pres:{tag:"Presentation Design",t:"Strategy Decks & Annual Reports",r:"Stearns Center · CHWT · VNBIS · 2022–2026",url:null,b:`<p>Data-driven presentation decks for leadership audiences — Stearns Center annual reports (contributing to 44.4% mobile lift), CHWT stakeholder dashboards, and VNBIS KPI reports.</p>`,chips:["PowerPoint","Tableau","Power BI","Annual Reports","Stakeholder Decks"],upload:"📁 Upload presentation PDFs or slide screenshots here."},
+  campus:{tag:"Event Marketing · CIE GMU",t:"19 Campus Events — Patriot Pitch & More",r:"Center for Innovation & Entrepreneurship · GMU",url:null,b:`<p>Designed materials for 19 events — Patriot Pitch, Student Design Challenge, Mama Chang Cooking Demo, Book Club, The Depot, Patriot Pantry food drive, and the Brew Crawl around the DMV.</p>`,chips:["Event Flyers","Posters","Social Posts","Student Business","DMV Community"],upload:"📁 Upload flyers, posters, social posts, or event photos here."},
+};
+
+function openM(id) {
+  const p=P[id]; if(!p) return;
+  document.getElementById('mTag').textContent=p.tag;
+  document.getElementById('mTt').textContent=p.t;
+  document.getElementById('mRole').textContent=p.r;
+  const site=document.getElementById('mSite');
+  if(p.url){
+    site.innerHTML=`<div class="m-sbody"><div class="m-bc"><div style="display:flex;gap:.28rem"><div style="width:8px;height:8px;border-radius:50%;background:#ff6058"></div><div style="width:8px;height:8px;border-radius:50%;background:#ffbd2e"></div><div style="width:8px;height:8px;border-radius:50%;background:#28c840"></div></div><div class="m-bbar">${p.url.replace('https://','')}</div></div><div class="m-ifw"><iframe src="${p.url}" loading="lazy" sandbox="allow-same-origin"></iframe></div></div>`;
+  } else { site.innerHTML=''; }
+  const chips=p.chips.map(c=>`<span class="m-chip">${c}</span>`).join('');
+  const visit=p.url?`<a class="m-visit" href="${p.url}" target="_blank" rel="noopener">Visit Live Site ↗</a>`:'';
+  document.getElementById('mBody').innerHTML=p.b+`<div class="m-chips">${chips}</div>${visit}<div class="uph">${p.upload}</div>`;
+  document.getElementById('mb').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeM(){
+  document.getElementById('mb').classList.remove('open');
+  document.body.style.overflow='';
+  setTimeout(()=>{document.getElementById('mSite').innerHTML='';},350);
+}
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.07});
+document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

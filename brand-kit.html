@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Brand Kit — Allie Le</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,700;1,300;1,500&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="brand.css"/>
+  <style>
+    body { min-height: 100vh; }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem var(--pad); border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; background: rgba(255,249,243,.96);
+      backdrop-filter: blur(14px); z-index: 100;
+    }
+    .logo { font-family: var(--font-display); font-size: 1.05rem; font-weight: 500; text-decoration: none; color: var(--ink); }
+    .back { font-size: .7rem; font-weight: 500; letter-spacing: .09em; text-transform: uppercase; text-decoration: none; color: var(--text-mid); transition: color .2s; }
+    .back:hover { color: var(--lilac-dk); }
+
+    .page { max-width: 900px; margin: 0 auto; padding: clamp(3rem,7vw,5rem) var(--pad) 5rem; }
+
+    /* hero */
+    .kit-hero { margin-bottom: 3.5rem; }
+    .kit-eye { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-lt); margin-bottom: 1rem; }
+    .kit-title { font-family: var(--font-display); font-size: clamp(2.4rem,5vw,4rem); font-weight: 300; line-height: 1; letter-spacing: -.02em; margin-bottom: .7rem; }
+    .kit-title em { font-style: italic; font-weight: 500; color: var(--lilac-dk); }
+    .kit-sub { font-size: .93rem; color: var(--text-mid); max-width: 50ch; line-height: 1.7; font-weight: 300; }
+
+    /* color pills row */
+    .palette-preview { display: flex; gap: .5rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .pp-dot { width: 36px; height: 36px; border-radius: 50%; border: 2px solid rgba(0,0,0,.06); }
+
+    /* ── SECTION ── */
+    .sec { margin-bottom: 4rem; }
+    .sec-label {
+      font-family: var(--font-mono); font-size: .6rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--ink-lt);
+      padding-bottom: .65rem; border-bottom: 1px solid var(--border);
+      margin-bottom: 1.4rem;
+    }
+
+    /* ── SWATCHES ── */
+    .swatch-group { margin-bottom: 1.2rem; }
+    .swatch-group-label { font-family: var(--font-mono); font-size: .57rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-lt); margin-bottom: .7rem; }
+    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: .75rem; }
+    .swatch { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+    .sw-color { height: 64px; }
+    .sw-info { padding: .55rem .65rem; background: var(--white); }
+    .sw-name { font-family: var(--font-mono); font-size: .58rem; letter-spacing: .04em; font-weight: 500; color: var(--ink); display: block; margin-bottom: .08rem; }
+    .sw-hex { font-family: var(--font-mono); font-size: .55rem; color: var(--ink-lt); }
+
+    /* ── POP COLORS ── */
+    .pop-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px,1fr)); gap: 1rem; }
+    .pop-card { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+    .pop-swatch { height: 80px; display: flex; align-items: flex-end; padding: .6rem; }
+    .pop-tag { font-family: var(--font-mono); font-size: .56rem; letter-spacing: .06em; color: rgba(0,0,0,.4); font-weight: 500; }
+    .pop-tag-lt { color: rgba(255,255,255,.6); }
+    .pop-info { padding: .55rem .65rem; background: var(--white); }
+
+    footer { border-top: 1px solid var(--border); padding: 1.2rem var(--pad); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .fn { font-family: var(--font-display); font-size: .95rem; font-weight: 500; }
+    .ft { font-family: var(--font-mono); font-size: .6rem; color: var(--ink-lt); letter-spacing: .05em; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Allie Le</a>
+  <a class="back" href="index.html">← Portfolio</a>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="kit-hero fu">
+    <p class="kit-eye">Brand Identity System</p>
+    <h1 class="kit-title">Allie Le —<br><em>Brand Kit</em></h1>
+    <p class="kit-sub">Warm Brown · Lilac · Orange · Peach cream — with teal, yellow, and cobalt pops. Quirky, warm, and creative without losing professionalism.</p>
+    <div class="palette-preview">
+      <div class="pp-dot" style="background:#7A6043"></div>
+      <div class="pp-dot" style="background:#C88BDB"></div>
+      <div class="pp-dot" style="background:#FFA046"></div>
+      <div class="pp-dot" style="background:#FFDDB8"></div>
+      <div class="pp-dot" style="background:#117660"></div>
+      <div class="pp-dot" style="background:#FFD769"></div>
+      <div class="pp-dot" style="background:#4F6E3B"></div>
+      <div class="pp-dot" style="background:#6099FF"></div>
+    </div>
+  </div>
+
+  <!-- ── COLORS ── -->
+  <div class="sec fu">
+    <p class="sec-label">Color Palette — Primary</p>
+    <div class="swatch-group">
+      <div class="swatches">
+        <div class="swatch"><div class="sw-color" style="background:#7A6043"></div><div class="sw-info"><span class="sw-name">Brown</span><span class="sw-hex">#7A6043</span></div></div>
+        <div class="swatch"><div class="sw-color" style="background:#C88BDB"></div><div class="sw-info"><span class="sw-name">Lilac</span><span class="sw-hex">#C88BDB</span></div></div>
+        <div class="swatch"><div class="sw-color" style="background:#FFA046"></div><div class="sw-info"><span class="sw-name">Orange</span><span class="sw-hex">#FFA046</span></div></div>
+        <div class="swatch"><div class="sw-color" style="background:#FFDDB8"></div><div class="sw-info"><span class="sw-name">Peach</span><span class="sw-hex">#FFDDB8</span></div></div>
+        <div class="swatch"><div class="sw-color" style="background:#FFF9F3"></div><div class="sw-info"><span class="sw-name">Cream BG</span><span class="sw-hex">#FFF9F3</span></div></div>
+        <div class="swatch"><div class="sw-color" style="background:#F7EFE3"></div><div class="sw-info"><span class="sw-name">Cream Dk</span><span class="sw-hex">#F7EFE3</span></div></div>
+      </div>
+    </div>
+    <p class="sec-label" style="margin-top:2rem">Color Palette — Pop Colors</p>
+    <div class="pop-row">
+      <div class="pop-card"><div class="pop-swatch" style="background:#117660"><span class="pop-tag pop-tag-lt">Teal</span></div><div class="pop-info"><span class="sw-name">Teal</span><span class="sw-hex">#117660</span></div></div>
+      <div class="pop-card"><div class="pop-swatch" style="background:#FFD769"><span class="pop-tag">Yellow</span></div><div class="pop-info"><span class="sw-name">Yellow</span><span class="sw-hex">#FFD769</span></div></div>
+      <div class="pop-card"><div class="pop-swatch" style="background:#4F6E3B"><span class="pop-tag pop-tag-lt">Forest</span></div><div class="pop-info"><span class="sw-name">Forest</span><span class="sw-hex">#4F6E3B</span></div></div>
+      <div class="pop-card"><div class="pop-swatch" style="background:#6099FF"><span class="pop-tag pop-tag-lt">Cobalt</span></div><div class="pop-info"><span class="sw-name">Cobalt</span><span class="sw-hex">#6099FF</span></div></div>
+      <div class="pop-card"><div class="pop-swatch" style="background:#FF9EED"><span class="pop-tag">Rose</span></div><div class="pop-info"><span class="sw-name">Rose</span><span class="sw-hex">#FF9EED</span></div></div>
+      <div class="pop-card"><div class="pop-swatch" style="background:#CC3333"><span class="pop-tag pop-tag-lt">Red</span></div><div class="pop-info"><span class="sw-name">Red</span><span class="sw-hex">#CC3333</span></div></div>
+    </div>
+  </div>
+
+
+
+
+</div><!-- end .page -->
+
+<footer>
+  <span class="fn">Allie Le — Brand Kit</span>
+  <span class="ft">Brown · Lilac · Orange · Peach · Pop Colors · 2025</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('vis');
+  }), { threshold: .06 });
+  document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

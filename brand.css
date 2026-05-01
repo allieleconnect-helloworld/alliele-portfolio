@@ -1,0 +1,233 @@
+/* ═══════════════════════════════════════════════════════════
+   ALLIE LE — BRAND KIT v2
+   Base: Warm Brown · Lilac · Orange · Peach
+   Pops: Teal · Yellow · Green · Rose
+   Source: Looka Quirky Brand Palettes
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* ── PRIMARY PALETTE (bottom-left from Looka) ── */
+  --brown:        #7A6043;   /* warm anchor — headers, dark text */
+  --brown-dk:     #5C4730;   /* deeper brown for hover */
+  --brown-lt:     #EDE0CF;   /* pale brown tint */
+
+  --lilac:        #C88BDB;   /* primary accent — lilac/purple */
+  --lilac-dk:     #A665C4;   /* deeper lilac */
+  --lilac-lt:     #F3E4FA;   /* soft lilac tint */
+  --lilac-line:   #DFB8F0;   /* lilac border */
+
+  --orange:       #FFA046;   /* secondary accent — warm orange */
+  --orange-dk:    #E07E20;   /* deeper orange */
+  --orange-lt:    #FFF0DC;   /* orange tint */
+  --orange-line:  #FFD09A;   /* orange border */
+
+  --peach:        #FFDDB8;   /* background accent — soft peach */
+  --cream:        #FFF9F3;   /* page background */
+  --cream-dk:     #F7EFE3;   /* card/section background */
+  --cream-line:   #EDE4D8;   /* dividers */
+
+  /* ── POP COLORS (pulled from other Looka palettes) ── */
+  --teal:         #117660;   /* pop — teal green */
+  --teal-lt:      #D4F0E8;
+  --yellow:       #FFD769;   /* pop — golden yellow */
+  --yellow-lt:    #FFF8DC;
+  --forest:       #4F6E3B;   /* pop — olive/forest */
+  --rose:         #FF9EED;   /* pop — playful rose pink */
+  --cobalt:       #6099FF;   /* pop — bright blue */
+
+  /* ── INK / NEUTRALS ── */
+  --ink:          #2A1F14;   /* warm near-black */
+  --ink-mid:      #6B5A48;   /* body text */
+  --ink-lt:       #B09882;   /* captions, labels */
+  --white:        #FFFFFF;
+
+  /* ── SEMANTIC ALIASES ── */
+  --bg:           var(--cream);
+  --bg-card:      var(--white);
+  --bg-section:   var(--cream-dk);
+  --bg-dark:      var(--brown);
+
+  --text:         var(--ink);
+  --text-mid:     var(--ink-mid);
+  --text-lt:      var(--ink-lt);
+
+  --accent:       var(--lilac);
+  --accent-dk:    var(--lilac-dk);
+  --accent2:      var(--orange);
+  --accent2-dk:   var(--orange-dk);
+
+  --border:       var(--cream-line);
+  --border-focus: var(--lilac);
+
+  /* ── TYPOGRAPHY ── */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Outfit', system-ui, sans-serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
+
+  /* ── SPACING ── */
+  --pad:          clamp(1.4rem, 5.5vw, 4.5rem);
+  --radius:       10px;
+  --radius-lg:    16px;
+  --radius-pill:  100px;
+}
+
+/* ── BASE RESETS ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+::selection { background: var(--lilac); color: #fff; }
+img { display: block; max-width: 100%; }
+
+/* ── SHARED NAV ── */
+.al-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .9rem var(--pad);
+  background: rgba(255,249,243,.95);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.al-nav-logo {
+  font-family: var(--font-display); font-size: 1.1rem; font-weight: 500;
+  text-decoration: none; color: var(--ink);
+}
+.al-nav-back {
+  font-size: .7rem; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; text-decoration: none; color: var(--text-mid);
+  transition: color .2s;
+}
+.al-nav-back:hover { color: var(--lilac-dk); }
+.al-nav-cta {
+  font-size: .7rem; font-weight: 600; letter-spacing: .07em;
+  text-transform: uppercase; padding: .44rem 1.1rem;
+  background: var(--lilac); color: #fff;
+  border-radius: var(--radius-pill); text-decoration: none;
+  transition: background .2s, transform .15s;
+}
+.al-nav-cta:hover { background: var(--lilac-dk); transform: translateY(-1px); }
+
+/* ── BUTTONS ── */
+.btn-primary {
+  display: inline-block; padding: .82rem 1.8rem;
+  background: var(--brown); color: var(--white);
+  font-family: var(--font-body); font-size: .78rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase;
+  text-decoration: none; border-radius: var(--radius-pill);
+  border: none; cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+.btn-primary:hover { background: var(--brown-dk); transform: translateY(-1px); }
+
+.btn-lilac {
+  display: inline-block; padding: .82rem 1.8rem;
+  background: var(--lilac); color: #fff;
+  font-family: var(--font-body); font-size: .78rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase;
+  text-decoration: none; border-radius: var(--radius-pill);
+  border: none; cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+.btn-lilac:hover { background: var(--lilac-dk); transform: translateY(-1px); }
+
+.btn-orange {
+  display: inline-block; padding: .82rem 1.8rem;
+  background: var(--orange); color: var(--brown);
+  font-family: var(--font-body); font-size: .78rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  text-decoration: none; border-radius: var(--radius-pill);
+  border: none; cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+.btn-orange:hover { background: var(--orange-dk); color: #fff; transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-block; padding: .82rem 1.8rem;
+  border: 1.5px solid var(--cream-line); color: var(--ink);
+  font-family: var(--font-body); font-size: .78rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase;
+  text-decoration: none; border-radius: var(--radius-pill);
+  background: transparent;
+  transition: border-color .2s, color .2s;
+}
+.btn-outline:hover { border-color: var(--lilac); color: var(--lilac-dk); }
+
+/* ── EYEBROW LABELS ── */
+.eyebrow {
+  font-family: var(--font-mono); font-size: .62rem;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--ink-lt);
+  margin-bottom: .55rem;
+}
+.eyebrow-lilac  { color: var(--lilac-dk); }
+.eyebrow-orange { color: var(--orange-dk); }
+.eyebrow-teal   { color: var(--teal); }
+
+/* ── DIVIDER ── */
+.al-divider { height: 1px; background: var(--border); }
+.al-divider-pad { margin: 0 var(--pad); }
+
+/* ── CHIP / TAG ── */
+.al-chip {
+  display: inline-block; font-family: var(--font-mono); font-size: .62rem;
+  letter-spacing: .04em; padding: .26rem .75rem;
+  border-radius: var(--radius-pill);
+  background: var(--cream-dk); border: 1px solid var(--border);
+  color: var(--ink-mid);
+}
+.al-chip-lilac  { background: var(--lilac-lt);  border-color: var(--lilac-line);  color: var(--lilac-dk); }
+.al-chip-orange { background: var(--orange-lt); border-color: var(--orange-line); color: var(--orange-dk); }
+.al-chip-teal   { background: var(--teal-lt);   border-color: #9AD8C8;            color: var(--teal); }
+
+/* ── CARD ── */
+.al-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  transition: transform .3s, box-shadow .3s;
+}
+.al-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 44px rgba(122,96,67,.1);
+}
+
+/* ── AVAILABILITY DOT ── */
+.avail-dot {
+  display: inline-block; width: 7px; height: 7px;
+  border-radius: 50%; background: #4ade80;
+  animation: avail-pulse 2s ease-in-out infinite;
+}
+@keyframes avail-pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(74,222,128,.45); }
+  50%      { box-shadow: 0 0 0 5px rgba(74,222,128,0); }
+}
+
+/* ── FOOTER ── */
+.al-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.3rem var(--pad);
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 1rem;
+}
+.al-footer-name {
+  font-family: var(--font-display); font-size: .98rem; font-weight: 500;
+}
+.al-footer-note { font-size: .68rem; color: var(--ink-lt); }
+
+/* ── FADE-UP ── */
+.fu {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.fu.vis { opacity: 1; transform: none; }
+
+/* ── FADE STAGGER HELPERS ── */
+.fu-1 { transition-delay: .1s; }
+.fu-2 { transition-delay: .2s; }
+.fu-3 { transition-delay: .3s; }
+.fu-4 { transition-delay: .4s; }
