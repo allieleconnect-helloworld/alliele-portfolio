@@ -221,7 +221,7 @@ img { display: block; max-width: 100%; }
 
 /* ── FADE-UP ── */
 .fu {
-  opacity: 0; transform: translateY(20px);
+  opacity: 1; transform: none;
   transition: opacity .65s ease, transform .65s ease;
 }
 .fu.vis { opacity: 1; transform: none; }
