@@ -221,10 +221,14 @@ img { display: block; max-width: 100%; }
 
 /* ── FADE-UP ── */
 .fu {
-  opacity: 1; transform: none;
+  opacity: 1;
+  transform: none;
   transition: opacity .65s ease, transform .65s ease;
 }
-.fu.vis { opacity: 1; transform: none; }
+.fu.vis {
+  opacity: 1;
+  transform: none;
+}
 
 /* ── FADE STAGGER HELPERS ── */
 .fu-1 { transition-delay: .1s; }
